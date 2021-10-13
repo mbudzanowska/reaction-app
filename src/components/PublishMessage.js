@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Context from "../context";
 import { newMessage } from "../state/actions";
 
-const PublishMessage = ({ dispatch }) => {
+const PublishMessage = () => {
   const [text, setText] = useState("");
+  
+  const { dispatch } = useContext(Context);
 
   const updateText = (event) => {
     setText(event.target.value);
