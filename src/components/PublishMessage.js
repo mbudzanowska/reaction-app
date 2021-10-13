@@ -5,14 +5,17 @@ import { useAppContext } from "./hooks";
 const PublishMessage = () => {
   const [text, setText] = useState("");
 
-  const { dispatch } = useAppContext();
+  const {
+    pubsub: { publish },
+    state: { username },
+  } = useAppContext();
 
   const updateText = (event) => {
     setText(event.target.value);
   };
 
   const publishMessage = () => {
-    dispatch(newMessage(text));
+    publish(newMessage({ text, username }));
   };
 
   const handleKeyPress = (event) => {

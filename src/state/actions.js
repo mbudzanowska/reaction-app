@@ -1,7 +1,12 @@
-import { NEW_MESSAGE } from "./types";
+import { NEW_MESSAGE, SET_USERNAME } from "./types";
 import { v4 as uuid } from "uuid";
 
-export const newMessage = (text) => ({
+export const newMessage = ({ text, username }) => ({
   type: NEW_MESSAGE,
-  item: { text, timestamp: Date.now(), id: uuid() },
+  item: { text, username, timestamp: Date.now(), id: uuid() },
+});
+
+export const setUsername = (username) => ({
+  type: SET_USERNAME,
+  username,
 });
