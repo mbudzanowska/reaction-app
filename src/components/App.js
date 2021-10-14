@@ -11,8 +11,6 @@ const pubsub = new PubSub();
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log(state);
-
   useEffect(() => {
     pubsub.addListener({
       message: (messageObject) => {

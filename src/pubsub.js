@@ -13,7 +13,7 @@ function PubSub() {
   };
 
   this.publish = (message) => {
-    console.log("publish message", message);
+   // console.log("publish message", message);
     pubnub.publish({
       message,
       channel: MESSAGE_CHANNEL,
